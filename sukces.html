@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiadomość wysłana | M&P Roll</title>
+    <meta name="robots" content="noindex, follow">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, system-ui, sans-serif;
+            background-color: #f8fbff;
+        }
+        .success-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .success-card {
+            background-color: #ffffff;
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,30,80,0.06);
+            max-width: 500px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #0056b3;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        .success-icon svg { width: 40px; height: 40px; }
+        .success-card h1 { 
+            margin-bottom: 1rem; 
+            color: #111111;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 0;
+        }
+        .success-card p { 
+            margin-bottom: 2.5rem; 
+            color: #555555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #003d82;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-page">
+        <div class="success-card">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Dziękujemy!</h1>
+            <p>Twoja wiadomość została pomyślnie wysłana. Skontaktujemy się z Tobą najszybciej jak to możliwe.</p>
+            <a href="/" class="btn-primary">Wróć na stronę główną</a>
+        </div>
+    </div>
+</body>
+</html>
