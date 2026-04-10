@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Optymalizacja ładowania czcionek -->
+    <!-- Czcionki: synchroniczne dla eliminacji CLS/FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
-    <!-- Async CSS load -->
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <!-- CSS główny -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- Google Analytics (deferred) -->
     <script>
       window.addEventListener('load', function() {
@@ -104,8 +102,8 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="assets/images/hero_bg.webp" alt="OFERTA" class="hero-bg" loading="eager" fetchpriority="high">
-        <div class="container hero-content fade-in">
+        <img src="assets/images/hero_bg.webp" alt="OFERTA" class="hero-bg" loading="eager" fetchpriority="high" width="1920" height="1080">
+        <div class="container hero-content fade-in appear">
             <span class="hero-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary-light)"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                 Najwyższa jakość w regionie

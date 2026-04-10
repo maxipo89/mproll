@@ -223,6 +223,7 @@ body {
     background: var(--bg-dark);
     color: var(--text-light);
     overflow: hidden;
+    contain: layout;
 }
 .hero::after {
     content: '';
@@ -246,6 +247,8 @@ body {
     transform: scale(1.05);
     will-change: transform;
     animation: slowZoom 20s ease-in-out infinite alternate;
+    /* Zapobiega CLS - wymiary zdefiniowane w HTML */
+    aspect-ratio: 16/9;
 }
 @keyframes slowZoom {
     0% { transform: scale(1.05); }
@@ -298,8 +301,7 @@ body {
 .stats-banner {
     position: relative;
     z-index: 4;
-    margin-top: -60px;
-    padding-bottom: 4rem;
+    padding: 4rem 1.5rem;
 }
 .stats-flex {
     display: flex;
@@ -919,7 +921,7 @@ textarea.form-control {
     .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     
-    .hero { padding-top: 100px; min-height: auto; padding-bottom: 6rem; }
+    .hero { padding-top: 100px; min-height: auto; padding-bottom: 6rem; contain: layout; }
     .hero-actions { flex-direction: column; }
     .hero h1 { font-size: 2.5rem; }
     
