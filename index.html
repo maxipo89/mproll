@@ -2,30 +2,35 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Optymalizacja ładowania czcionek -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB"></script>
+    <!-- Async CSS load -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Google Analytics (deferred) -->
     <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB';
+        s.async = true;
+        document.head.appendChild(s);
+      });
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-7RLNYB3TJB');
     </script>
     <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M&P Roll | Okna, Drzwi, Bramy, Rolety, Żaluzje</title>
     <meta name="description" content="Profesjonalny montaż i sprzedaż okien, drzwi, bram garażowych, rolet i żaluzji. Działamy w Łasku i rejonie łódzkim. Skontaktuj się z nami!">
     <meta name="keywords" content="M&P Roll, okna łask, drzwi łask, bramy garażowe łódź, rolety zewnętrzne łask, żaluzje">
     <meta name="author" content="M&P ROLL Przemysław Krawczyk">
     
     <link rel="preload" as="image" href="assets/images/hero_bg.webp" fetchpriority="high">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
     
     <!-- JSON-LD LocalBusiness Schema -->
     <script type="application/ld+json">
@@ -158,7 +163,7 @@
             <div class="services-bento">
                 <a href="/bramy-garazowe-lodz/" class="bento-card bento-large fade-in">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_bramy.webp" alt="Bramy garażowe" loading="lazy">
+                        <img src="assets/images/img_bramy.webp" alt="Bramy garażowe" loading="lazy" width="720" height="480" sizes="(max-width: 768px) 100vw, 50vw">
                     </div>
                     <div class="service-content">
                         <h3>Bramy Garażowe</h3>
@@ -169,7 +174,7 @@
 
                 <a href="/drzwi-lodz/" class="bento-card fade-in" style="transition-delay: 0.1s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_drzwi.webp" alt="Drzwi zewnętrzne" loading="lazy">
+                        <img src="assets/images/img_drzwi.webp" alt="Drzwi zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
                     </div>
                     <div class="service-content">
                         <h3>Drzwi Zewnętrzne</h3>
@@ -180,7 +185,7 @@
 
                 <a href="/okna-lodz/" class="bento-card fade-in" style="transition-delay: 0.2s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_okna.webp" alt="Okna PCV" loading="lazy">
+                        <img src="assets/images/img_okna.webp" alt="Okna PCV" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
                     </div>
                     <div class="service-content">
                         <h3>Okna PCV</h3>
@@ -191,7 +196,7 @@
                 
                 <a href="/rolety-zewnetrzne-lodz/" class="bento-card fade-in" style="transition-delay: 0.3s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_rolety.webp" alt="Rolety zewnętrzne" loading="lazy">
+                        <img src="assets/images/img_rolety.webp" alt="Rolety zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
                     </div>
                     <div class="service-content">
                         <h3>Rolety</h3>
@@ -202,7 +207,7 @@
 
                 <a href="/zaluzje-lodz/" class="bento-card fade-in" style="transition-delay: 0.4s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_zaluzje.webp" alt="Żaluzje" loading="lazy">
+                        <img src="assets/images/img_zaluzje.webp" alt="Żaluzje" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
                     </div>
                     <div class="service-content">
                         <h3>Żaluzje</h3>
@@ -229,7 +234,7 @@
                 <div class="portfolio-item"><img src="images/portfolio/IMG_1462.webp" alt="Nasze realizacje okna mproll"></div>
                 <div class="portfolio-item"><img src="images/portfolio/387483003_304385145776225_8361431530609054465_n.webp" alt="Realizacja bramy rolety"></div>
                 <div class="portfolio-item"><img src="images/portfolio/400500932_647325037298801_5451863090672626147_n.webp" alt="Instalacja drzwi wejsciowych"></div>
-                <div class="portfolio-item"><img src="images/portfolio/bd89ed9c-3df1-44be-945f-e3e9c7eb0442.webp" alt="Realizacje i montażżz"></div>
+                <div class="portfolio-item"><img src="images/portfolio/bd89ed9c-3df1-44be-945f-e3e9c7eb0442.webp" alt="Realizacje i montaż"></div>
             </div>
         </div>
     </section>
