@@ -2,7 +2,7 @@
    M&P ROLL - PREMIUM STYLESHEET (V2)
    ========================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* Google Fonts are now loaded in the <head> of HTML files for better performance */
 
 :root {
     --primary: #0056b3; 
