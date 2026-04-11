@@ -6,9 +6,13 @@
     <!-- Czcionki: synchroniczne dla eliminacji CLS/FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <!-- CSS główny -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <!-- CSS główny: preload + nieblokujące ładowanie -->
+    <link rel="preload" as="style" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
     <!-- Google Analytics (deferred) -->
     <script>
       window.addEventListener('load', function() {
@@ -102,7 +106,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="assets/images/hero_bg.webp" alt="OFERTA" class="hero-bg" loading="eager" fetchpriority="high" width="1920" height="1080">
+        <img src="assets/images/hero_bg.webp" alt="Okna, Drzwi, Bramy M&P Roll" class="hero-bg" loading="eager" fetchpriority="high" width="1920" height="1080" decoding="async">
         <div class="container hero-content fade-in appear">
             <span class="hero-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary-light)"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
@@ -161,7 +165,7 @@
             <div class="services-bento">
                 <a href="/bramy-garazowe-lodz/" class="bento-card bento-large fade-in">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_bramy.webp" alt="Bramy garażowe" loading="lazy" width="720" height="480" sizes="(max-width: 768px) 100vw, 50vw">
+                        <img src="assets/images/img_bramy.webp" alt="Bramy garażowe" loading="lazy" width="720" height="480" sizes="(max-width: 768px) 100vw, 50vw" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Bramy Garażowe</h3>
@@ -172,7 +176,7 @@
 
                 <a href="/drzwi-lodz/" class="bento-card fade-in" style="transition-delay: 0.1s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_drzwi.webp" alt="Drzwi zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
+                        <img src="assets/images/img_drzwi.webp" alt="Drzwi zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Drzwi Zewnętrzne</h3>
@@ -183,7 +187,7 @@
 
                 <a href="/okna-lodz/" class="bento-card fade-in" style="transition-delay: 0.2s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_okna.webp" alt="Okna PCV" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
+                        <img src="assets/images/img_okna.webp" alt="Okna PCV" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Okna PCV</h3>
@@ -194,7 +198,7 @@
                 
                 <a href="/rolety-zewnetrzne-lodz/" class="bento-card fade-in" style="transition-delay: 0.3s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_rolety.webp" alt="Rolety zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
+                        <img src="assets/images/img_rolety.webp" alt="Rolety zewnętrzne" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Rolety</h3>
@@ -205,7 +209,7 @@
 
                 <a href="/zaluzje-lodz/" class="bento-card fade-in" style="transition-delay: 0.4s">
                     <div class="service-img-wrap">
-                        <img src="assets/images/img_zaluzje.webp" alt="Żaluzje" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw">
+                        <img src="assets/images/img_zaluzje.webp" alt="Żaluzje" loading="lazy" width="600" height="400" sizes="(max-width: 768px) 100vw, 33vw" decoding="async">
                     </div>
                     <div class="service-content">
                         <h3>Żaluzje</h3>
@@ -225,14 +229,14 @@
                 <h2 class="section-title">Nasze Realizacje</h2>
             </div>
             <div class="portfolio-grid fade-in">
-                <div class="portfolio-item"><img src="images/portfolio/nowy-dom-scaled.webp" alt="Nowy dom okna i drzwi"></div>
-                <div class="portfolio-item"><img src="images/portfolio/brama-segmentowa-na-wymiar.webp" alt="Brama segmentowa z automatem"></div>
-                <div class="portfolio-item"><img src="images/portfolio/rolety-antywlamaniowe.webp" alt="Rolety antywlamaniowe"></div>
-                <div class="portfolio-item"><img src="images/portfolio/zaluzje-fasadowe.webp" alt="Zaluzje fasadowe"></div>
-                <div class="portfolio-item"><img src="images/portfolio/IMG_1462.webp" alt="Nasze realizacje okna mproll"></div>
-                <div class="portfolio-item"><img src="images/portfolio/387483003_304385145776225_8361431530609054465_n.webp" alt="Realizacja bramy rolety"></div>
-                <div class="portfolio-item"><img src="images/portfolio/400500932_647325037298801_5451863090672626147_n.webp" alt="Instalacja drzwi wejsciowych"></div>
-                <div class="portfolio-item"><img src="images/portfolio/bd89ed9c-3df1-44be-945f-e3e9c7eb0442.webp" alt="Realizacje i montaż"></div>
+                <div class="portfolio-item"><img src="images/portfolio/nowy-dom-scaled.webp" alt="Nowy dom okna i drzwi" loading="lazy" width="800" height="533" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/brama-segmentowa-na-wymiar.webp" alt="Brama segmentowa z automatem" loading="lazy" width="800" height="533" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/rolety-antywlamaniowe.webp" alt="Rolety antywlamaniowe" loading="lazy" width="800" height="533" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/zaluzje-fasadowe.webp" alt="Zaluzje fasadowe" loading="lazy" width="800" height="533" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/IMG_1462.webp" alt="Nasze realizacje okna mproll" loading="lazy" width="800" height="533" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/387483003_304385145776225_8361431530609054465_n.webp" alt="Realizacja bramy rolety" loading="lazy" width="800" height="1067" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/400500932_647325037298801_5451863090672626147_n.webp" alt="Instalacja drzwi wejsciowych" loading="lazy" width="800" height="1067" decoding="async"></div>
+                <div class="portfolio-item"><img src="images/portfolio/bd89ed9c-3df1-44be-945f-e3e9c7eb0442.webp" alt="Realizacje i montaż" loading="lazy" width="800" height="533" decoding="async"></div>
             </div>
         </div>
     </section>

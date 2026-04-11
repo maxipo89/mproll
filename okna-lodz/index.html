@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,13 @@
     <!-- Czcionki: synchroniczne dla eliminacji CLS/FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <!-- Async CSS load -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <!-- CSS główny: preload + nieblokujące ładowanie -->
+    <link rel="preload" as="style" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
     <noscript></noscript>
     <!-- Google Analytics (deferred) -->
     <script>
@@ -79,7 +83,7 @@
                 <div class="mt-4"><a href="../#kontakt" class="btn btn-primary">Zamów pomiar okien</a></div>
             </div>
             <div class="details-image">
-                <img src="../assets/images/img_okna.webp" alt="Oszklenie duże okno PCV">
+                <img src="../assets/images/img_okna.webp" alt="Oszklenie duże okno PCV" loading="lazy" width="600" height="400" decoding="async">
             </div>
         </div>
     </section>

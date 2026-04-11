@@ -6,9 +6,13 @@
     <!-- Czcionki: synchroniczne dla eliminacji CLS/FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <!-- CSS główny -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <!-- CSS główny: preload + nieblokujące ładowanie -->
+    <link rel="preload" as="style" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB"></script>
     <script>
@@ -74,7 +78,7 @@
                 <div class="mt-4"><a href="../#kontakt" class="btn btn-primary">Skontaktuj się z nami</a></div>
             </div>
             <div class="details-image">
-                <img src="../assets/images/img_zaluzje.webp" alt="Zaluzje drewniane w biurze">
+                <img src="../assets/images/img_zaluzje.webp" alt="Zaluzje drewniane w biurze" loading="lazy" width="600" height="400" decoding="async">
             </div>
         </div>
     </section>
