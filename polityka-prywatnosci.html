@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="font" href="/assets/fonts/outfit-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="/assets/fonts/outfit-latinext.woff2" type="font/woff2" crossorigin>
+    
+    <style>
+        /* latin-ext */
+        @font-face {
+          font-family: 'Outfit';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/outfit-latinext.woff2') format('woff2');
+          unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Outfit';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/outfit-latin.woff2') format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {font-family: 'Outfit Fallback';font-style: normal;font-weight: 100 900;src: local('Arial');ascent-override: 98%;descent-override: 24%;line-gap-override: 0%;size-adjust: 102.5%;}
+        :root {--primary: #0056b3;--primary-light: #3385ff;--primary-dark: #003d82;--accent: #f0f7ff;--text-main: #111111;--text-muted: #555555;--text-light: #ffffff;--bg-main: #ffffff;--bg-alt: #f8fbff;--bg-dark: #0a0e17;--bg-header: rgba(255,255,255,0.9);--radius-sm: 8px;--radius-md: 16px;--radius-lg: 24px;--radius-xl: 32px;--shadow-sm: 0 4px 10px rgba(0,0,0,0.03);--shadow-md: 0 10px 30px rgba(0,30,80,0.06);--shadow-lg: 0 20px 40px rgba(0,30,80,0.1);--transition: 0.4s cubic-bezier(0.16,1,0.3,1);--container-max: 1300px;--section-pad: 6rem 1.5rem;}
+        * {margin: 0;padding: 0;box-sizing: border-box;}
+        html {scroll-behavior: smooth;font-size: 16px;}
+        body {font-family:'Outfit', 'Outfit Fallback', sans-serif;color: var(--text-main);background-color: var(--bg-main);line-height: 1.6;overflow-x: hidden;}
+        .container {max-width: var(--container-max);margin: 0 auto;padding: 0 1.5rem;}
+        
+        /* Header */
+        .site-header {position: fixed;top: 0;left: 0;width: 100%;z-index: 1000;background: var(--bg-header);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);border-bottom: 1px solid rgba(0,0,0,0.03);transition: all 0.4s cubic-bezier(0.16,1,0.3,1);will-change: height, background, box-shadow;}
+        .site-header.scrolled {height: 70px;background: rgba(255, 255, 255, 0.98);box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
+        .header-container {display: flex;justify-content: space-between;align-items: center;height: 80px;transition: height 0.4s cubic-bezier(0.16,1,0.3,1);}
+        .site-header.scrolled .header-container {height: 70px;}
+        .logo {font-size: 2.3rem;font-weight: 900;color: var(--primary);text-decoration: none;letter-spacing: 1px;display: flex;align-items: center;gap: 0.4rem;text-transform: uppercase;}
+        .logo span {color: var(--bg-dark);font-weight: 300;letter-spacing: 4px;}
+        
+        /* Content */
+        .policy-content {padding: 180px 0 80px;}
+        .policy-text h1 {font-size: 3rem;font-weight: 800;margin-bottom: 2rem;color: var(--bg-dark);}
+        .policy-text h2 {font-size: 1.8rem;font-weight: 700;margin: 2.5rem 0 1rem;color: var(--bg-dark);}
+        .policy-text p {margin-bottom: 1.25rem;color: var(--text-muted);font-size: 1.1rem;}
+        .policy-text ul {margin-bottom: 1.5rem;padding-left: 1.5rem;}
+        .policy-text li {margin-bottom: 0.5rem;color: var(--text-muted);}
+
+        /* Footer */
+        .site-footer {background: var(--bg-dark);color: rgba(255,255,255,0.9);padding: 4rem 1.5rem 2rem;margin-top: 4rem;}
+        .footer-bottom {text-align: center;padding-top: 2rem;border-top: 1px solid rgba(255,255,255,0.1);font-size: 0.95rem;}
+        .footer-logo {font-size: 2.2rem;font-weight: 900;color: var(--primary-light);text-decoration: none;display: flex;align-items: center;gap: 0.4rem;margin-bottom: 1.5rem;text-transform: uppercase;justify-content: center;}
+        .footer-logo span {color: var(--text-light);font-weight: 300;letter-spacing: 4px;}
+        .footer-muted {color: rgba(255,255,255,0.65);}
+
+        @media (max-width: 768px) {
+            .policy-text h1 {font-size: 2.2rem;}
+            .policy-content {padding-top: 120px;}
+        }
+    </style>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <title>Polityka Prywatności | M&P Roll</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo">M&P <span>Roll</span></a>
+        </div>
+    </header>
+
+    <main class="policy-content">
+        <div class="container policy-text">
+            <h1>Polityka Prywatności</h1>
+            <p>Ostatnia aktualizacja: 12 kwietnia 2026 r.</p>
+            
+            <p>Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych osobowych przekazywanych przez Użytkowników w związku z korzystaniem z serwisu mproll.pl.</p>
+
+            <h2>1. Administrator Danych</h2>
+            <p>Administratorem danych osobowych jest <strong>M&P ROLL Przemysław Krawczyk</strong>, z siedzibą przy ul. Kościelnej 10/lok 10, 98-100 Łask, NIP: 9970091841.</p>
+
+            <h2>2. Zakres zbieranych danych</h2>
+            <p>Serwis zbiera informacje dobrowolnie podane przez użytkownika w formularzu kontaktowym:</p>
+            <ul>
+                <li>Imię i Nazwisko</li>
+                <li>Adres e-mail</li>
+                <li>Numer telefonu</li>
+                <li>Treść wiadomości</li>
+            </ul>
+
+            <h2>3. Cel przetwarzania danych</h2>
+            <p>Dane osobowe przetwarzane są w celu:</p>
+            <ul>
+                <li>Obsługi zapytania przesłanego przez formularz kontaktowy.</li>
+                <li>Przygotowania i przesłania oferty handlowej.</li>
+                <li>Realizacji usług montażowych i sprzedażowych (jeśli dojdzie do zawarcia umowy).</li>
+            </ul>
+
+            <h2>4. Pliki Cookies (Ciasteczka)</h2>
+            <p>Serwis mproll.pl wykorzystuje pliki cookies w celu zapewnienia poprawnego działania strony oraz dla celów analitycznych (Google Analytics). Użytkownik może w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce.</p>
+
+            <h2>5. Okres przechowywania danych</h2>
+            <p>Dane będą przechowywane przez okres niezbędny do udzielenia odpowiedzi na zapytanie lub przez czas trwania współpracy, a po jej zakończeniu przez okres wymagany przepisami prawa lub do momentu wycofania zgody przez Użytkownika.</p>
+
+            <h2>6. Prawa Użytkownika</h2>
+            <p>Każdy Użytkownik ma prawo do:</p>
+            <ul>
+                <li>Dostępu do swoich danych osobowych.</li>
+                <li>Sprostowania danych.</li>
+                <li>Usunięcia danych („prawo do bycia zapomnianym”).</li>
+                <li>Ograniczenia przetwarzania.</li>
+                <li>Wniesienia sprzeciwu wobec przetwarzania.</li>
+            </ul>
+
+            <h2>7. Kontakt</h2>
+            <p>W sprawach dotyczących ochrony danych osobowych prosimy o kontakt pod adresem: <strong>biuro@mproll.pl</strong>.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <a href="/" class="footer-logo">M&P <span>Roll</span></a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 M&P Roll. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,28 +1,61 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Czcionki: synchroniczne dla eliminacji CLS/FOUT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB"></script>
+    <link rel="preload" as="font" href="/assets/fonts/outfit-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="/assets/fonts/outfit-latinext.woff2" type="font/woff2" crossorigin>
+    <!-- Google Analytics (deferred) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-7RLNYB3TJB');
+
+      function loadGtag() {
+          if (window.gtagLoaded) return;
+          window.gtagLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB';
+          s.async = true;
+          document.head.appendChild(s);
+      }
+
+      var gtagTimer = setTimeout(loadGtag, 3000);
+      ['click', 'mousemove', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, function() {
+              clearTimeout(gtagTimer);
+              loadGtag();
+          }, { once: true, passive: true });
+      });
     </script>
     <title>Wiadomość wysłana | M&P Roll</title>
     <meta name="robots" content="noindex, follow">
     <style>
+        /* latin-ext */
+        @font-face {
+          font-family: 'Outfit';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/outfit-latinext.woff2') format('woff2');
+          unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Outfit';
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url('/assets/fonts/outfit-latin.woff2') format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {font-family: 'Outfit Fallback';font-style: normal;font-weight: 100 900;src: local('Arial');ascent-override: 98%;descent-override: 24%;line-gap-override: 0%;size-adjust: 102.5%;}
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Outfit', -apple-system, system-ui, sans-serif;
+            font-family: 'Outfit', 'Outfit Fallback', sans-serif;
             background-color: #f8fbff;
         }
         .success-page {
@@ -80,6 +113,16 @@
             background-color: #003d82;
             transform: translateY(-2px);
         }
+        .footer-link {
+            color: #555555;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -91,6 +134,7 @@
             <h1>Dziękujemy!</h1>
             <p>Twoja wiadomość została pomyślnie wysłana. Skontaktujemy się z Tobą najszybciej jak to możliwe.</p>
             <a href="/" class="btn-primary">Wróć na stronę główną</a>
+            <div style="margin-top: 1.5rem;"><a href="/polityka-prywatnosci.html" class="footer-link">Polityka Prywatności</a></div>
         </div>
     </div>
 </body>
