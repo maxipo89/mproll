@@ -43,9 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    });
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
