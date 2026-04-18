@@ -21,11 +21,8 @@
           s.async = true;
           document.head.appendChild(s);
       }
-
-      var gtagTimer = setTimeout(loadGtag, 3000);
       ['click', 'mousemove', 'scroll', 'touchstart'].forEach(function(e) {
           window.addEventListener(e, function() {
-              clearTimeout(gtagTimer);
               loadGtag();
           }, { once: true, passive: true });
       });
