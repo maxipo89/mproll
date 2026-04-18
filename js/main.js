@@ -23,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        const sentinel = document.createElement('div');
-        sentinel.style.cssText = 'position: absolute; top: 50px; left: 0; width: 1px; height: 1px; z-index: -1;';
-        document.body.prepend(sentinel);
-        const navObserver = new IntersectionObserver(entries => {
-            header.classList.toggle('scrolled', !entries[0].isIntersecting);
-        }, { threshold: 0 });
-        navObserver.observe(sentinel);
+        // Sentinel wstawiamy w requestAnimationFrame aby uniknąć forced reflow
+        requestAnimationFrame(() => {
+            const sentinel = document.createElement('div');
+            sentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;z-index:-1;';
+            document.body.prepend(sentinel);
+            const navObserver = new IntersectionObserver(entries => {
+                header.classList.toggle('scrolled', !entries[0].isIntersecting);
+            }, { threshold: 0 });
+            navObserver.observe(sentinel);
+        });
     };
 
     // 2. Fragmentacja zadania: Baner Cookies u dołu (Odroczone zadanie)
@@ -44,12 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button id="accept-cookies" class="btn btn-primary">Akceptuję</button>
             </div>
         `;
-        document.body.appendChild(banner);
-
-        document.getElementById('accept-cookies').addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'true');
-            banner.classList.add('hide');
-            setTimeout(() => banner.remove(), 400);
+        requestAnimationFrame(() => {
+            document.body.appendChild(banner);
+            document.getElementById('accept-cookies').addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'true');
+                banner.classList.add('hide');
+                setTimeout(() => banner.remove(), 400);
+            });
         });
     };
 
@@ -62,23 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetEl = document.querySelector(targetId);
                 if (targetEl) {
                     e.preventDefault();
-                    setTimeout(() => {
-                        targetEl.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                            targetEl.scrollIntoView({ behavior: 'smooth' });
-                        }, 600);
-                    }, 300);
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
         if (window.location.hash) {
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 const hashTarget = document.querySelector(window.location.hash);
                 if (hashTarget) {
                     hashTarget.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 500);
+            });
         }
     };
 
