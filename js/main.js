@@ -23,18 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        let lastScrollY = window.scrollY;
-        let scrollTicking = false;
-        window.addEventListener('scroll', () => {
-            lastScrollY = window.scrollY;
-            if (!scrollTicking) {
-                window.requestAnimationFrame(() => {
-                    header.classList.toggle('scrolled', lastScrollY > 50);
-                    scrollTicking = false;
-                });
-                scrollTicking = true;
-            }
-        }, { passive: true });
+        const sentinel = document.createElement('div');
+        sentinel.style.cssText = 'position: absolute; top: 50px; left: 0; width: 1px; height: 1px; z-index: -1;';
+        document.body.prepend(sentinel);
+        const navObserver = new IntersectionObserver(entries => {
+            header.classList.toggle('scrolled', !entries[0].isIntersecting);
+        }, { threshold: 0 });
+        navObserver.observe(sentinel);
     };
 
     // 2. Fragmentacja zadania: Baner Cookies u dołu (Odroczone zadanie)
