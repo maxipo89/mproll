@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        let lastScrollY = window.scrollY;
         let scrollTicking = false;
         window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
             if (!scrollTicking) {
                 window.requestAnimationFrame(() => {
-                    header.classList.toggle('scrolled', window.scrollY > 50);
+                    header.classList.toggle('scrolled', lastScrollY > 50);
                     scrollTicking = false;
                 });
                 scrollTicking = true;
