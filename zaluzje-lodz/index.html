@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <noscript></noscript>
+    <!-- Google Analytics (deferred) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7RLNYB3TJB');
+
+      function loadGtag() {
+          if (window.gtagLoaded) return;
+          window.gtagLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7RLNYB3TJB';
+          s.async = true;
+          document.head.appendChild(s);
+      }
+      ['click', 'mousemove', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, function() {
+              loadGtag();
+          }, { once: true, passive: true });
+      });
+    </script>
     <style>@font-face {
           font-family: 'Outfit';
           font-style: normal;
